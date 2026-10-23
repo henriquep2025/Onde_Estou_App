@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Onde_Estou_App.Views.LocalPage"
+             xmlns:vm="clr-namespace:Onde_Estou_App.ViewModels"
+             x:DataType="vm:LocalViewModel"
+             Title="LocalPage"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#121212">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="10">
+
+            <!-- Título -->
+            <Label Text="📍 Minha Localização"
+                   FontSize="26"
+                   FontAttributes="Bold"
+                   TextColor="#00A8FF"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,30"/>
+
+            <!-- Botão -->
+            <Button Command="{Binding GetLocationCommand}"
+                    Text="Onde estou?"
+                    BackgroundColor="#00A8FF"
+                    TextColor="White"
+                    FontSize="18"
+                    FontAttributes="Bold"
+                    CornerRadius="12"
+                    HeightRequest="55"
+                    Margin="0,0,0,25"
+                    Shadow="{Shadow Brush=#00A8FF, Offset='0,5', Radius=10, Opacity=0.3}"/>
+
+            <!-- Campos -->
+            <Label Text="Rua" TextColor="#00A8FF" FontAttributes="Bold" Margin="0,5,0,0"/>
+            <Entry Text="{Binding CurrentLocation.Thoroughfare}" 
+                   BackgroundColor="#1E1E1E" TextColor="White" />
+
+            <Label Text="Número" TextColor="#00A8FF" FontAttributes="Bold" Margin="0,5,0,0"/>
+            <Entry Text="{Binding CurrentLocation.FeatureName}" 
+                   BackgroundColor="#1E1E1E" TextColor="White" />
+
+            <Label Text="Bairro" TextColor="#00A8FF" FontAttributes="Bold" Margin="0,5,0,0"/>
+            <Entry Text="{Binding CurrentLocation.SubLocality}" 
+                   BackgroundColor="#1E1E1E" TextColor="White" />
+
+            <Label Text="Cidade" TextColor="#00A8FF" FontAttributes="Bold" Margin="0,5,0,0"/>
+            <Entry Text="{Binding CurrentLocation.Locality}" 
+                   BackgroundColor="#1E1E1E" TextColor="White" />
+
+            <Label Text="Estado" TextColor="#00A8FF" FontAttributes="Bold" Margin="0,5,0,0"/>
+            <Entry Text="{Binding CurrentLocation.AdminArea}" 
+                   BackgroundColor="#1E1E1E" TextColor="White" />
+
+            <Label Text="CEP" TextColor="#00A8FF" FontAttributes="Bold" Margin="0,5,0,0"/>
+            <Entry Text="{Binding CurrentLocation.PostalCode}" 
+                   BackgroundColor="#1E1E1E" TextColor="White" />
+
+            <Label Text="País" TextColor="#00A8FF" FontAttributes="Bold" Margin="0,5,0,0"/>
+            <Entry Text="{Binding CurrentLocation.CountryName}" 
+                   BackgroundColor="#1E1E1E" TextColor="White" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
